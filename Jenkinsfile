@@ -1,16 +1,13 @@
 pipeline {
-  agent any
-  stages {
-    stage('Step 1') {
-      steps {
-        echo 'Hello world! stap 1'
-      }
+    agent any
+    parameters {
+            string(name: 'Naampie', defaultValue: 'Sam', description: 'Wat is mijn naam?')
+        }
+    stages {
+        stage('Example') {
+                    steps {
+                        echo "Hello ${params.Naampie}!"
+                    }
+                }
     }
-    stage('Step 2') {
-      steps {
-        echo 'Hello world! Stap 2 deel 1'
-        echo 'Hello world! Stap 2 deel 2'
-      }
-    }
-  }
 }
